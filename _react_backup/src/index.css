@@ -1,0 +1,200 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 40 30% 96%;
+    --foreground: 220 15% 15%;
+
+    --card: 40 25% 98%;
+    --card-foreground: 220 15% 15%;
+
+    --popover: 40 25% 98%;
+    --popover-foreground: 220 15% 15%;
+
+    --primary: 12 76% 61%;
+    --primary-foreground: 40 30% 96%;
+
+    --secondary: 40 20% 92%;
+    --secondary-foreground: 220 15% 25%;
+
+    --muted: 40 15% 90%;
+    --muted-foreground: 220 10% 45%;
+
+    --accent: 12 76% 61%;
+    --accent-foreground: 40 30% 96%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 40 15% 85%;
+    --input: 40 15% 85%;
+    --ring: 12 76% 61%;
+
+    --radius: 0.75rem;
+
+    /* Custom tokens */
+    --font-heading: 'Playfair Display', serif;
+    --font-body: 'DM Sans', sans-serif;
+    
+    /* Audio player */
+    --audio-wave: 12 76% 61%;
+    --audio-progress: 12 76% 51%;
+    --audio-bg: 40 20% 92%;
+    
+    /* Card hover */
+    --card-hover: 40 25% 95%;
+    
+    /* Gradient */
+    --gradient-warm: linear-gradient(135deg, hsl(12 76% 61% / 0.1), hsl(30 60% 70% / 0.1));
+    
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 220 15% 10%;
+    --foreground: 40 30% 96%;
+
+    --card: 220 15% 13%;
+    --card-foreground: 40 30% 96%;
+
+    --popover: 220 15% 13%;
+    --popover-foreground: 40 30% 96%;
+
+    --primary: 12 76% 61%;
+    --primary-foreground: 220 15% 10%;
+
+    --secondary: 220 15% 18%;
+    --secondary-foreground: 40 25% 90%;
+
+    --muted: 220 15% 20%;
+    --muted-foreground: 40 15% 60%;
+
+    --accent: 12 76% 61%;
+    --accent-foreground: 220 15% 10%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 220 15% 20%;
+    --input: 220 15% 20%;
+    --ring: 12 76% 61%;
+    
+    --audio-wave: 12 76% 61%;
+    --audio-progress: 12 76% 71%;
+    --audio-bg: 220 15% 18%;
+    --card-hover: 220 15% 16%;
+    
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-body antialiased;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading;
+  }
+}
+
+@layer components {
+  .section-label {
+    @apply text-xs tracking-[0.2em] uppercase text-muted-foreground font-body;
+  }
+  
+  .hero-text {
+    @apply text-4xl md:text-5xl lg:text-6xl font-heading leading-tight tracking-tight;
+  }
+  
+  .audio-card {
+    @apply bg-card rounded-xl p-6 transition-all duration-300 hover:bg-card-hover border border-border/50 hover:border-border hover:shadow-lg;
+  }
+  
+  .play-button {
+    @apply w-14 h-14 rounded-full bg-primary text-primary-foreground flex items-center justify-center transition-all duration-300 hover:scale-105 hover:shadow-lg;
+  }
+  
+  .nav-link {
+    @apply text-sm font-body text-muted-foreground hover:text-foreground transition-colors duration-200;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  
+  .animate-wave {
+    animation: wave 1.2s ease-in-out infinite;
+  }
+  
+  .animate-wave-delay-1 {
+    animation: wave 1.2s ease-in-out infinite 0.1s;
+  }
+  
+  .animate-wave-delay-2 {
+    animation: wave 1.2s ease-in-out infinite 0.2s;
+  }
+  
+  .animate-wave-delay-3 {
+    animation: wave 1.2s ease-in-out infinite 0.3s;
+  }
+  
+  .animate-wave-delay-4 {
+    animation: wave 1.2s ease-in-out infinite 0.4s;
+  }
+}
+
+@keyframes wave {
+  0%, 100% {
+    transform: scaleY(0.5);
+  }
+  50% {
+    transform: scaleY(1);
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slide-in {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
